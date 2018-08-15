@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('C://Users//HP//Desktop//Machine Learning A-Z//Part 2 - Regression//Section 5 - Multiple Linear Regression//50_Startups.csv')
+dataset = pd.read_csv('Path to database')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 4].values
 
@@ -59,6 +59,8 @@ regressor_OLS.summary()
 X_opt= X[:, [0,1,3,4,5]] 
 regressor_OLS = sm.OLS(endog=y, exog= X_opt).fit()
 regressor_OLS.summary()
+# To know how these variables are removed, run these above 3 lines and remove the variable with highest P-Value
+# Until all variables contains P-value less than our significance level.
 
 X_opt= X[:, [0,3,4,5]] 
 regressor_OLS = sm.OLS(endog=y, exog= X_opt).fit()
